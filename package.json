@@ -1,0 +1,57 @@
+{
+  "name": "@kk2007/dsh-workspace-search",
+  "version": "0.3.0",
+  "description": "Codex-style workspace command center for DeepSeek Harness: file browser, preview and unified search.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "search",
+    "explorer",
+    "files",
+    "grep",
+    "workspace",
+    "web-ui"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "check": "node --check index.js && node --check client.js && node test/workspace.test.mjs"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-commands",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  }
+}

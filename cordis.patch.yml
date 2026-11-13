@@ -1,0 +1,4 @@
+- insert:
+    - id: workspace-search
+      name: '@kk2007/dsh-workspace-search'
+      config: {}
